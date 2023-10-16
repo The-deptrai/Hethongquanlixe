@@ -1,0 +1,479 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HethongquanlithuexeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IdAcc" />
+          </Key>
+          <Property Name="IdAcc" Type="int" Nullable="false" />
+          <Property Name="Tendangnhap" Type="nvarchar" MaxLength="50" />
+          <Property Name="MatKhau" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Vaitro" Type="nvarchar" MaxLength="50" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoDienThoai" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DichVu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Tendichvu" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HopDong">
+          <Key>
+            <PropertyRef Name="Idhopdong" />
+          </Key>
+          <Property Name="Idhopdong" Type="int" Nullable="false" />
+          <Property Name="Manhanvien" Type="int" />
+          <Property Name="Makhachhang" Type="int" />
+          <Property Name="Loaihopdong" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ngaydi" Type="datetime" />
+          <Property Name="Ngayve" Type="datetime" />
+          <Property Name="Datcoc" Type="float" />
+          <Property Name="Giathue" Type="float" />
+          <Property Name="Phuthu" Type="float" />
+          <Property Name="Ngaytao" Type="datetime" />
+          <Property Name="Ngaysua" Type="datetime" />
+          <Property Name="Madichvu" Type="int" />
+          <Property Name="Nguoitaohd" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mayeucau" Type="int" />
+          <Property Name="Matinhtrang" Type="int" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Tenkhachhang" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sodienthoai" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Diachi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Manhomkh" Type="int" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LoaiXe">
+          <Key>
+            <PropertyRef Name="IdLoaiXe" />
+          </Key>
+          <Property Name="IdLoaiXe" Type="int" Nullable="false" />
+          <Property Name="Tenloaixe" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="NhomKhachHang">
+          <Key>
+            <PropertyRef Name="IdNhomKH" />
+          </Key>
+          <Property Name="IdNhomKH" Type="int" Nullable="false" />
+          <Property Name="Tennhomkh" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TaiXe">
+          <Key>
+            <PropertyRef Name="IdTaiXe" />
+          </Key>
+          <Property Name="IdTaiXe" Type="int" Nullable="false" />
+          <Property Name="HotenTaiXe" Type="nvarchar" MaxLength="50" />
+          <Property Name="SoDienThoai" Type="int" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="50" />
+          <Property Name="LoaiBanglai" Type="nvarchar" MaxLength="50" />
+          <Property Name="Matinhtrangxe" Type="int" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TinhTrangTaiXe">
+          <Key>
+            <PropertyRef Name="IdTTTX" />
+          </Key>
+          <Property Name="IdTTTX" Type="int" Nullable="false" />
+          <Property Name="Tentinhtrang" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'Hethongquanlithuexe.dbo.TrangThaiHopDong' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TrangThaiHopDong">
+          <Property Name="IdTTHD" Type="int" />
+          <Property Name="Tentrangthai" Type="nvarchar" MaxLength="50" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <EntityType Name="TrangThaiYeuCau">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Tentinhtrang" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Xe">
+          <Key>
+            <PropertyRef Name="IdXe" />
+          </Key>
+          <Property Name="IdXe" Type="int" Nullable="false" />
+          <Property Name="Tenxe" Type="nvarchar" MaxLength="50" />
+          <Property Name="Hangxe" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mauxe" Type="nvarchar" MaxLength="50" />
+          <Property Name="Bienkiemsoat" Type="nvarchar" MaxLength="50" />
+          <Property Name="Maloaixe" Type="nvarchar" MaxLength="50" />
+          <Property Name="Matinhtrangxe" Type="int" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="YeuCau">
+          <Key>
+            <PropertyRef Name="IdYC" />
+          </Key>
+          <Property Name="IdYC" Type="int" Nullable="false" />
+          <Property Name="Makhachhang" Type="int" />
+          <Property Name="Mahopdong" Type="int" />
+          <Property Name="NgayDi" Type="datetime" />
+          <Property Name="NgayVe" Type="datetime" />
+          <Property Name="NgayTao" Type="datetime" />
+          <Property Name="Ngaysua" Type="datetime" />
+          <Property Name="Madichvu" Type="int" />
+          <Property Name="Manhanvien" Type="int" />
+          <Property Name="Mayeucau" Type="int" />
+          <Property Name="Matrangthai" Type="int" />
+          <Property Name="Maxe" Type="int" />
+          <Property Name="Ghichu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="HethongquanlithuexeModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DichVu" EntityType="Self.DichVu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HopDong" EntityType="Self.HopDong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoaiXe" EntityType="Self.LoaiXe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhomKhachHang" EntityType="Self.NhomKhachHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiXe" EntityType="Self.TaiXe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TinhTrangTaiXe" EntityType="Self.TinhTrangTaiXe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrangThaiYeuCau" EntityType="Self.TrangThaiYeuCau" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Xe" EntityType="Self.Xe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YeuCau" EntityType="Self.YeuCau" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HethongquanlithuexeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="IdAcc" />
+          </Key>
+          <Property Name="IdAcc" Type="Int32" Nullable="false" />
+          <Property Name="Tendangnhap" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MatKhau" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Vaitro" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="DichVu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Tendichvu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="HopDong">
+          <Key>
+            <PropertyRef Name="Idhopdong" />
+          </Key>
+          <Property Name="Idhopdong" Type="Int32" Nullable="false" />
+          <Property Name="Manhanvien" Type="Int32" />
+          <Property Name="Makhachhang" Type="Int32" />
+          <Property Name="Loaihopdong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ngaydi" Type="DateTime" Precision="3" />
+          <Property Name="Ngayve" Type="DateTime" Precision="3" />
+          <Property Name="Datcoc" Type="Double" />
+          <Property Name="Giathue" Type="Double" />
+          <Property Name="Phuthu" Type="Double" />
+          <Property Name="Ngaytao" Type="DateTime" Precision="3" />
+          <Property Name="Ngaysua" Type="DateTime" Precision="3" />
+          <Property Name="Madichvu" Type="Int32" />
+          <Property Name="Nguoitaohd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mayeucau" Type="Int32" />
+          <Property Name="Matinhtrang" Type="Int32" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KhachHang">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Tenkhachhang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sodienthoai" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Diachi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Manhomkh" Type="Int32" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LoaiXe">
+          <Key>
+            <PropertyRef Name="IdLoaiXe" />
+          </Key>
+          <Property Name="IdLoaiXe" Type="Int32" Nullable="false" />
+          <Property Name="Tenloaixe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="NhomKhachHang">
+          <Key>
+            <PropertyRef Name="IdNhomKH" />
+          </Key>
+          <Property Name="IdNhomKH" Type="Int32" Nullable="false" />
+          <Property Name="Tennhomkh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TaiXe">
+          <Key>
+            <PropertyRef Name="IdTaiXe" />
+          </Key>
+          <Property Name="IdTaiXe" Type="Int32" Nullable="false" />
+          <Property Name="HotenTaiXe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="Int32" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LoaiBanglai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Matinhtrangxe" Type="Int32" />
+          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TinhTrangTaiXe">
+          <Key>
+            <PropertyRef Name="IdTTTX" />
+          </Key>
+          <Property Name="IdTTTX" Type="Int32" Nullable="false" />
+          <Property Name="Tentinhtrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TrangThaiYeuCau">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Tentinhtrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Xe">
+          <Key>
+            <PropertyRef Name="IdXe" />
+          </Key>
+          <Property Name="IdXe" Type="Int32" Nullable="false" />
+          <Property Name="Tenxe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Hangxe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mauxe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Bienkiemsoat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Maloaixe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Matinhtrangxe" Type="Int32" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="YeuCau">
+          <Key>
+            <PropertyRef Name="IdYC" />
+          </Key>
+          <Property Name="IdYC" Type="Int32" Nullable="false" />
+          <Property Name="Makhachhang" Type="Int32" />
+          <Property Name="Mahopdong" Type="Int32" />
+          <Property Name="NgayDi" Type="DateTime" Precision="3" />
+          <Property Name="NgayVe" Type="DateTime" Precision="3" />
+          <Property Name="NgayTao" Type="DateTime" Precision="3" />
+          <Property Name="Ngaysua" Type="DateTime" Precision="3" />
+          <Property Name="Madichvu" Type="Int32" />
+          <Property Name="Manhanvien" Type="Int32" />
+          <Property Name="Mayeucau" Type="Int32" />
+          <Property Name="Matrangthai" Type="Int32" />
+          <Property Name="Maxe" Type="Int32" />
+          <Property Name="Ghichu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="HethongquanlithuexeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="DichVus" EntityType="Self.DichVu" />
+          <EntitySet Name="HopDongs" EntityType="Self.HopDong" />
+          <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+          <EntitySet Name="LoaiXes" EntityType="Self.LoaiXe" />
+          <EntitySet Name="NhomKhachHangs" EntityType="Self.NhomKhachHang" />
+          <EntitySet Name="TaiXes" EntityType="Self.TaiXe" />
+          <EntitySet Name="TinhTrangTaiXes" EntityType="Self.TinhTrangTaiXe" />
+          <EntitySet Name="TrangThaiYeuCaus" EntityType="Self.TrangThaiYeuCau" />
+          <EntitySet Name="Xes" EntityType="Self.Xe" />
+          <EntitySet Name="YeuCaus" EntityType="Self.YeuCau" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HethongquanlithuexeModelStoreContainer" CdmEntityContainer="HethongquanlithuexeEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="IdAcc" ColumnName="IdAcc" />
+                <ScalarProperty Name="Tendangnhap" ColumnName="Tendangnhap" />
+                <ScalarProperty Name="MatKhau" ColumnName="MatKhau" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Vaitro" ColumnName="Vaitro" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DichVus">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.DichVu">
+              <MappingFragment StoreEntitySet="DichVu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tendichvu" ColumnName="Tendichvu" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HopDongs">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.HopDong">
+              <MappingFragment StoreEntitySet="HopDong">
+                <ScalarProperty Name="Idhopdong" ColumnName="Idhopdong" />
+                <ScalarProperty Name="Manhanvien" ColumnName="Manhanvien" />
+                <ScalarProperty Name="Makhachhang" ColumnName="Makhachhang" />
+                <ScalarProperty Name="Loaihopdong" ColumnName="Loaihopdong" />
+                <ScalarProperty Name="Ngaydi" ColumnName="Ngaydi" />
+                <ScalarProperty Name="Ngayve" ColumnName="Ngayve" />
+                <ScalarProperty Name="Datcoc" ColumnName="Datcoc" />
+                <ScalarProperty Name="Giathue" ColumnName="Giathue" />
+                <ScalarProperty Name="Phuthu" ColumnName="Phuthu" />
+                <ScalarProperty Name="Ngaytao" ColumnName="Ngaytao" />
+                <ScalarProperty Name="Ngaysua" ColumnName="Ngaysua" />
+                <ScalarProperty Name="Madichvu" ColumnName="Madichvu" />
+                <ScalarProperty Name="Nguoitaohd" ColumnName="Nguoitaohd" />
+                <ScalarProperty Name="Mayeucau" ColumnName="Mayeucau" />
+                <ScalarProperty Name="Matinhtrang" ColumnName="Matinhtrang" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KhachHangs">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.KhachHang">
+              <MappingFragment StoreEntitySet="KhachHang">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tenkhachhang" ColumnName="Tenkhachhang" />
+                <ScalarProperty Name="Sodienthoai" ColumnName="Sodienthoai" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Diachi" ColumnName="Diachi" />
+                <ScalarProperty Name="Manhomkh" ColumnName="Manhomkh" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoaiXes">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.LoaiXe">
+              <MappingFragment StoreEntitySet="LoaiXe">
+                <ScalarProperty Name="IdLoaiXe" ColumnName="IdLoaiXe" />
+                <ScalarProperty Name="Tenloaixe" ColumnName="Tenloaixe" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NhomKhachHangs">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.NhomKhachHang">
+              <MappingFragment StoreEntitySet="NhomKhachHang">
+                <ScalarProperty Name="IdNhomKH" ColumnName="IdNhomKH" />
+                <ScalarProperty Name="Tennhomkh" ColumnName="Tennhomkh" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiXes">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.TaiXe">
+              <MappingFragment StoreEntitySet="TaiXe">
+                <ScalarProperty Name="IdTaiXe" ColumnName="IdTaiXe" />
+                <ScalarProperty Name="HotenTaiXe" ColumnName="HotenTaiXe" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="LoaiBanglai" ColumnName="LoaiBanglai" />
+                <ScalarProperty Name="Matinhtrangxe" ColumnName="Matinhtrangxe" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TinhTrangTaiXes">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.TinhTrangTaiXe">
+              <MappingFragment StoreEntitySet="TinhTrangTaiXe">
+                <ScalarProperty Name="IdTTTX" ColumnName="IdTTTX" />
+                <ScalarProperty Name="Tentinhtrang" ColumnName="Tentinhtrang" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrangThaiYeuCaus">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.TrangThaiYeuCau">
+              <MappingFragment StoreEntitySet="TrangThaiYeuCau">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Tentinhtrang" ColumnName="Tentinhtrang" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Xes">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.Xe">
+              <MappingFragment StoreEntitySet="Xe">
+                <ScalarProperty Name="IdXe" ColumnName="IdXe" />
+                <ScalarProperty Name="Tenxe" ColumnName="Tenxe" />
+                <ScalarProperty Name="Hangxe" ColumnName="Hangxe" />
+                <ScalarProperty Name="Mauxe" ColumnName="Mauxe" />
+                <ScalarProperty Name="Bienkiemsoat" ColumnName="Bienkiemsoat" />
+                <ScalarProperty Name="Maloaixe" ColumnName="Maloaixe" />
+                <ScalarProperty Name="Matinhtrangxe" ColumnName="Matinhtrangxe" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YeuCaus">
+            <EntityTypeMapping TypeName="HethongquanlithuexeModel.YeuCau">
+              <MappingFragment StoreEntitySet="YeuCau">
+                <ScalarProperty Name="IdYC" ColumnName="IdYC" />
+                <ScalarProperty Name="Makhachhang" ColumnName="Makhachhang" />
+                <ScalarProperty Name="Mahopdong" ColumnName="Mahopdong" />
+                <ScalarProperty Name="NgayDi" ColumnName="NgayDi" />
+                <ScalarProperty Name="NgayVe" ColumnName="NgayVe" />
+                <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+                <ScalarProperty Name="Ngaysua" ColumnName="Ngaysua" />
+                <ScalarProperty Name="Madichvu" ColumnName="Madichvu" />
+                <ScalarProperty Name="Manhanvien" ColumnName="Manhanvien" />
+                <ScalarProperty Name="Mayeucau" ColumnName="Mayeucau" />
+                <ScalarProperty Name="Matrangthai" ColumnName="Matrangthai" />
+                <ScalarProperty Name="Maxe" ColumnName="Maxe" />
+                <ScalarProperty Name="Ghichu" ColumnName="Ghichu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
